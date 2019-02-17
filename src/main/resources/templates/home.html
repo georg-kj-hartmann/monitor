@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Monitor</title>
+<title>Plant Monitor</title>
+<style type="text/css">
+body {
+	margin: 40px;
+}
+
+.box {
+	background-color: #444;
+	color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 150%;
+}
+
+.wrapper {
+	width: 600px;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(3, 100%);
+}
+</style>
+
 </head>
 <body>
-<h1>Monitor v 1</h1>
+	<h1>Plant Monitor v 1</h1>
+
+	<div class="wrapper">
+		<div th:each="sensor : ${sensorStatusList}" class="box">
+			<h1 th:text="${sensor.name}"></h1>
+			<p th:text="${sensor.value}"></p>
+		</div>
+
+	</div>
+
 </body>
 </html>
